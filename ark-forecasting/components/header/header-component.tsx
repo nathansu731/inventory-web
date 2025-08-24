@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Menu, Moon, Sun, X } from "lucide-react";
 import type React from "react";
 import { HeaderNavigation } from "@/components/header/header-navigation";
 import { HeaderMobileNavigation } from "@/components/header/header-mobile-navigation";

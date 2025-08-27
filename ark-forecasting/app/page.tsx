@@ -104,7 +104,10 @@ export default function LandingPage() {
         <HowItWorksSection />
         <TestimonialsSection />
         <TeamSection />
-        <PriceSection handleStartTrial={handleStartTrial} />
+        <PriceSection
+          handleStartTrial={handleStartTrial}
+          handleContactSales={handleContactSales}
+        />
         <FaqSection />
         <CallToActionSection
           handleStartTrial={handleStartTrial}

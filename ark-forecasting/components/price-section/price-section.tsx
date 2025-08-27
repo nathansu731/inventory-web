@@ -8,9 +8,13 @@ import type React from "react";
 
 type PriceSectionProps = {
   handleStartTrial: () => void;
+  handleContactSales: () => void;
 };
 
-export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
+export const PriceSection = ({
+  handleStartTrial,
+  handleContactSales,
+}: PriceSectionProps) => {
   return (
     <section
       id="pricing"
@@ -69,6 +73,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                       "CSV data import",
                     ],
                     cta: "Start Free Trial",
+                    btnClick: handleStartTrial,
                   },
                   {
                     name: "Professional",
@@ -85,6 +90,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                     ],
                     cta: "Start Free Trial",
                     popular: true,
+                    btnClick: handleStartTrial,
                   },
                   {
                     name: "Enterprise",
@@ -100,6 +106,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                       "Custom integrations",
                     ],
                     cta: "Contact Sales",
+                    btnClick: handleContactSales,
                   },
                 ].map((plan, i) => (
                   <motion.div
@@ -141,7 +148,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                         <Button
                           className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
                           variant={plan.popular ? "default" : "outline"}
-                          onClick={handleStartTrial}
+                          onClick={plan.btnClick}
                         >
                           {plan.cta}
                         </Button>
@@ -167,6 +174,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                       "CSV data import",
                     ],
                     cta: "Start Free Trial",
+                    btnClick: handleStartTrial,
                   },
                   {
                     name: "Professional",
@@ -182,6 +190,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                       "API access",
                     ],
                     cta: "Start Free Trial",
+                    btnClick: handleStartTrial,
                     popular: true,
                   },
                   {
@@ -198,6 +207,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                       "Custom integrations",
                     ],
                     cta: "Contact Sales",
+                    btnClick: handleContactSales,
                   },
                 ].map((plan, i) => (
                   <motion.div
@@ -239,7 +249,7 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
                         <Button
                           className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
                           variant={plan.popular ? "default" : "outline"}
-                          onClick={handleStartTrial}
+                          onClick={plan.btnClick}
                         >
                           {plan.cta}
                         </Button>

@@ -55,8 +55,8 @@ export const TeamSection = () => {
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
                     <span>
-                      Selected for Heidelberg Laureate Forum (Top 200 Young
-                      Researchers)
+                      Among top 200 young researchers - Heidelberg Laureate
+                      Forum
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">

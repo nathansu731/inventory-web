@@ -85,7 +85,23 @@ export const HeroSection = ({
               width={1280}
               height={720}
               alt="ARK-Forecasting dashboard showing demand predictions and inventory analytics"
-              className="w-full h-auto"
+              className="w-full h-auto hidden lg:block"
+              priority
+            />
+            <Image
+              src="/dashboard-front-image-tablet.jpg"
+              width={1024}
+              height={576}
+              alt="dashboard tablet"
+              className="w-full h-auto hidden sm:block lg:hidden"
+              priority
+            />
+            <Image
+              src="/dashboard-front-image-mobile.jpg"
+              width={640}
+              height={360}
+              alt="dashboard mobile"
+              className="w-full h-auto block sm:hidden"
               priority
             />
             <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>

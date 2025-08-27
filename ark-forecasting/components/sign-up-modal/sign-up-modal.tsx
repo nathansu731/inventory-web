@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, CheckCircle, Mail } from "lucide-react";
 import type React from "react";
 
-type FormData = {
+type FormDataModal = {
   email: string;
   firstName: string;
   lastName: string;
@@ -23,7 +23,7 @@ type SignUpModalProps = {
   setShowTrialModal: React.Dispatch<React.SetStateAction<boolean>>;
   signupStep: number;
   handleFormSubmit: (e: React.FormEvent) => void;
-  formData: FormData;
+  formData: FormDataModal;
   handleInputChange: (field: string, value: string) => void;
   isDemoModalOpen: boolean;
   setIsDemoModalOpen: React.Dispatch<React.SetStateAction<boolean>>;

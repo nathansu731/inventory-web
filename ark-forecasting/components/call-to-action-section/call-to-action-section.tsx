@@ -5,10 +5,12 @@ import type React from "react";
 
 type CallToActionSectionProps = {
   handleStartTrial: () => void;
+  handleContactSales: () => void;
 };
 
 export const CallToActionSection = ({
   handleStartTrial,
+  handleContactSales,
 }: CallToActionSectionProps) => {
   return (
     <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
@@ -44,6 +46,7 @@ export const CallToActionSection = ({
               size="lg"
               variant="outline"
               className="rounded-full h-12 px-8 text-base bg-neutral-800 border-white text-white hover:bg-neutral-800/80"
+              onClick={handleContactSales}
             >
               Contact Sales
             </Button>

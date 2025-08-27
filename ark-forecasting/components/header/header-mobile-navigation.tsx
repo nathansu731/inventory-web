@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import type React from "react";
+import React, { useEffect } from "react";
 
 type HeaderMobileNavigationProps = {
   mobileMenuOpen: boolean;
@@ -15,6 +15,17 @@ export const HeaderMobileNavigation = ({
   setMobileMenuOpen,
   handleStartTrial,
 }: HeaderMobileNavigationProps) => {
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       {mobileMenuOpen && (
@@ -22,9 +33,9 @@ export const HeaderMobileNavigation = ({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b h-[calc(100vh-4rem)] overflow-y-auto"
+          className="lg:hidden absolute top-16 inset-x-0 h-[calc(100vh-4rem)] bg-background/95 backdrop-blur-lg border-b z-50 flex flex-col"
         >
-          <div className="container py-4 flex flex-col gap-4 mobile-menu-pb">
+          <div className="overflow-y-auto flex-1 container py-4 flex flex-col gap-4 mobile-menu-pb">
             <Link
               href="#features"
               className="py-2 text-sm font-medium"
@@ -68,8 +79,10 @@ export const HeaderMobileNavigation = ({
               >
                 Log in
               </Link>
+            </div>
+            <div className="absolute bottom-4 left-4 right-4">
               <Button
-                className="rounded-full fixed bottom-4 left-4 right-4 z-50"
+                className="w-full rounded-full"
                 onClick={handleStartTrial}
               >
                 Start Free Trial

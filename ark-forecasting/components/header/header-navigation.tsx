@@ -18,7 +18,7 @@ export const HeaderNavigation = () => {
       </Link>
       <Link
         href="#team"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground lg:hidden xl:block"
       >
         Team
       </Link>

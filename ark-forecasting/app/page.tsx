@@ -2,9 +2,6 @@
 
 import type React from "react";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { HeaderComponent } from "@/components/header/header-component";
 import { HeroSection } from "@/components/hero-section/hero-section";
@@ -18,6 +15,7 @@ import { FaqSection } from "@/components/faq-section/faq-section";
 import { CallToActionSection } from "@/components/call-to-action-section/call-to-action-section";
 import { SignUpModal } from "@/components/sign-up-modal/sign-up-modal";
 import { Footer } from "@/components/footer/footer";
+import { ContactSalesModal } from "@/components/contact-sales-modal/contact-sales-modal";
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,12 +23,14 @@ export default function LandingPage() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [showTrialModal, setShowTrialModal] = useState(false);
+  const [showContactSalesModal, setShowContactSalesModal] = useState(false);
   const [signupStep, setSignupStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
     lastName: "",
     company: "",
+    message: "",
   });
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [demoStep, setDemoStep] = useState(1);
@@ -55,6 +55,11 @@ export default function LandingPage() {
 
   const handleStartTrial = () => {
     setShowTrialModal(true);
+    setSignupStep(1);
+  };
+
+  const handleContactSales = () => {
+    setShowContactSalesModal(true);
     setSignupStep(1);
   };
 
@@ -99,9 +104,15 @@ export default function LandingPage() {
         <HowItWorksSection />
         <TestimonialsSection />
         <TeamSection />
-        <PriceSection handleStartTrial={handleStartTrial} />
+        <PriceSection
+          handleStartTrial={handleStartTrial}
+          handleContactSales={handleContactSales}
+        />
         <FaqSection />
-        <CallToActionSection handleStartTrial={handleStartTrial} />
+        <CallToActionSection
+          handleStartTrial={handleStartTrial}
+          handleContactSales={handleContactSales}
+        />
       </main>
       <SignUpModal
         showTrialModal={showTrialModal}
@@ -114,6 +125,14 @@ export default function LandingPage() {
         setIsDemoModalOpen={setIsDemoModalOpen}
         demoStep={demoStep}
         handleDemoSubmit={handleDemoSubmit}
+      />
+      <ContactSalesModal
+        showContactSalesModal={showContactSalesModal}
+        setShowContactSalesModal={setShowContactSalesModal}
+        signupStep={signupStep}
+        handleFormSubmit={handleFormSubmit}
+        formData={formData}
+        handleInputChange={handleInputChange}
       />
       <Footer />
     </div>

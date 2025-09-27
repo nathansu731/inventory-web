@@ -53,10 +53,10 @@ export const TeamSection = () => {
                 </p>
                 <div className="space-y-3 text-sm text-muted-foreground mb-6">
                   <div className="flex items-center justify-center gap-2">
-                    <div className="size-2 rounded-full bg-primary"></div>
+                    <div className="size-2 rounded-full bg-primary p-1"></div>
                     <span>
-                      Selected for Heidelberg Laureate Forum (Top 200 Young
-                      Researchers)
+                      Among top 200 young researchers - Heidelberg Laureate
+                      Forum
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">

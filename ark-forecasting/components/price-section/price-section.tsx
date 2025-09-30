@@ -5,6 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type React from "react";
+import { handleSubscribeProfessional } from "@/components/handle-subscriptions/handle-subscribe-professional";
+import { handleSubscribeStarter } from "@/components/handle-subscriptions/handle-subscribe-starter";
+import { handleOneTimeStarter } from "@/components/handle-one-time-plans/handle-one-time-starter";
 
 type PriceSectionProps = {
   handleStartTrial: () => void;
@@ -35,6 +38,14 @@ export const PriceSection = ({
             variant="secondary"
           >
             Pricing
+          </Badge>
+          <Badge
+            className="rounded-full px-4 py-1.5 text-sm font-medium"
+            variant="secondary"
+          >
+            <button onClick={handleOneTimeStarter} className="cursor-pointer">
+              One Time Purchase
+            </button>
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Choose Your Forecasting Plan
@@ -73,7 +84,7 @@ export const PriceSection = ({
                       "CSV data import",
                     ],
                     cta: "Start Free Trial",
-                    btnClick: handleStartTrial,
+                    btnClick: handleSubscribeStarter,
                   },
                   {
                     name: "Professional",
@@ -90,7 +101,7 @@ export const PriceSection = ({
                     ],
                     cta: "Start Free Trial",
                     popular: true,
-                    btnClick: handleStartTrial,
+                    btnClick: handleSubscribeProfessional,
                   },
                   {
                     name: "Enterprise",
@@ -146,7 +157,7 @@ export const PriceSection = ({
                           ))}
                         </ul>
                         <Button
-                          className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
+                          className={`w-full mt-auto rounded-full cursor-pointer ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
                           variant={plan.popular ? "default" : "outline"}
                           onClick={plan.btnClick}
                         >

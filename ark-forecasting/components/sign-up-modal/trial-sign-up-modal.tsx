@@ -38,6 +38,27 @@ const TRIAL_MODAL_COPY = {
   },
 } as const;
 
+const LEGACY_CONFIRMATION_COPY = {
+  description: "We've sent you a verification link to complete your signup.",
+  points: [
+    "Click the link in your email to verify your account",
+    "Complete your profile setup",
+    "Start your 14-day free trial",
+  ],
+  title: "Check Your Email",
+} as const;
+
+const WAITLIST_CONFIRMATION_COPY = {
+  description:
+    "Thanks for showing interest. You have been added to the waitlist, and you will be notified and presented with early user discounts once the product is launched.",
+  title: "You are on the waitlist",
+} as const;
+
+const SUCCESS_MODAL_COPY = {
+  legacy: LEGACY_CONFIRMATION_COPY,
+  waitlist: WAITLIST_CONFIRMATION_COPY,
+} as const;
+
 const TrialSignUpForm = ({
   formData,
   handleFormSubmit,
@@ -106,10 +127,8 @@ const TrialSignUpForm = ({
 };
 
 const TrialSuccessState = ({
-  email,
   onClose,
 }: {
-  email: string;
   onClose: () => void;
 }) => {
   return (
@@ -119,24 +138,26 @@ const TrialSuccessState = ({
       </div>
 
       <div className="space-y-2">
-        <h3 className="font-semibold">Verification email sent!</h3>
+        <h3 className="font-semibold">{WAITLIST_CONFIRMATION_COPY.title}</h3>
         <p className="text-sm text-muted-foreground">
-          We&#39;ve sent a verification link to <strong>{email}</strong>
+          {WAITLIST_CONFIRMATION_COPY.description}
         </p>
       </div>
 
-      <div className="space-y-3 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <CheckCircle className="size-4 text-green-500" />
-          <span>Click the link in your email to verify your account</span>
+      <div className="space-y-3 text-sm text-muted-foreground text-left">
+        <div className="flex items-start gap-2">
+          <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500" />
+          <span>
+            We are currently onboarding users in phases to ensure the best
+            product experience.
+          </span>
         </div>
-        <div className="flex items-center gap-2">
-          <CheckCircle className="size-4 text-green-500" />
-          <span>Complete your profile setup</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <CheckCircle className="size-4 text-green-500" />
-          <span>Start your 14-day free trial</span>
+        <div className="flex items-start gap-2">
+          <CheckCircle className="mt-0.5 size-4 shrink-0 text-green-500" />
+          <span>
+            Our forecasting experts will reach out when early access is
+            available.
+          </span>
         </div>
       </div>
 
@@ -161,18 +182,19 @@ export const TrialSignUpModal = ({
 }: TrialSignUpModalProps) => {
   // Keeping both copies makes it easy to switch back to free-trial text later.
   const activeCopy = TRIAL_MODAL_COPY.earlyAccess;
+  const activeSuccessCopy = SUCCESS_MODAL_COPY.waitlist;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold">
-            {step === 1 ? activeCopy.title : "Check Your Email"}
+            {step === 1 ? activeCopy.title : activeSuccessCopy.title}
           </DialogTitle>
           <DialogDescription className="text-center">
             {step === 1
               ? activeCopy.description
-              : "We've sent you a verification link to complete your signup."}
+              : activeSuccessCopy.description}
           </DialogDescription>
         </DialogHeader>
 
@@ -184,10 +206,7 @@ export const TrialSignUpModal = ({
             submitButtonText={activeCopy.submitButton}
           />
         ) : (
-          <TrialSuccessState
-            email={formData.email}
-            onClose={() => setOpen(false)}
-          />
+          <TrialSuccessState onClose={() => setOpen(false)} />
         )}
       </DialogContent>
     </Dialog>

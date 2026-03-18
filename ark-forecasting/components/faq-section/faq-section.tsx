@@ -30,7 +30,7 @@ export const FaqSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="max-w-[800px] text-muted-foreground md:text-lg">
-            Common questions about ARK-Forecasting and inventory optimization.
+            Common questions about ARK Forecasting and inventory optimization.
           </p>
         </motion.div>
 

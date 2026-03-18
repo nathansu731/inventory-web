@@ -7,9 +7,9 @@ export const howItWorksData = [
   },
   {
     step: "02",
-    title: "Configure Forecasts",
+    title: "Chat with ARK AI",
     description:
-      "Set up forecasting parameters, seasonality patterns, and business rules tailored to your products.",
+      "Adjust the default config or Ask ARK AI things such as \"When we will have highest sales for SKU 001?\"" ,
   },
   {
     step: "03",

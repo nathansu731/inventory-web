@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type React from "react";
@@ -40,13 +41,17 @@ export const TeamSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="max-w-md"
+            className="max-w-"
           >
             <Card className="overflow-hidden border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur transition-all hover:shadow-lg">
               <CardContent className="p-8 text-center">
-                <div className="size-24 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground text-2xl font-bold mx-auto mb-6">
-                  RG
-                </div>
+                <Image
+                  src="/rakshitha.JPG"
+                  alt="Rakshitha Godahewa"
+                  width={96}
+                  height={96}
+                  className="size-24 rounded-full object-cover mx-auto mb-6"
+                />
                 <h3 className="text-2xl font-bold mb-2">Rakshitha Godahewa</h3>
                 <p className="text-primary font-medium mb-4">
                   Lead Forecasting Expert & Data Scientist
@@ -55,19 +60,19 @@ export const TeamSection = () => {
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
                     <span>
-                      Selected for Heidelberg Laureate Forum (Top 200 Young
-                      Researchers)
+                      Featured in Heidelberg Laureate Forum (World's Top 200
+                      Researchers 2022)
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
                     <span>
-                      Postdoctoral Research Fellow at Monash University
+                      Postdoctoral Research Fellow at Monash University, Melbourne
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
-                    <span>PhD in Deep Learning for Optimization Systems</span>
+                    <span>Ph.D. in Deep Learning for Optimization Systems</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
@@ -76,7 +81,7 @@ export const TeamSection = () => {
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
                   Dr. Godahewa brings world-class expertise in machine learning
-                  and forecasting to ARK-Forecasting. Her research in deep
+                  and forecasting to ARK Forecasting. Her research in deep
                   learning optimization and time series analysis directly powers
                   our AI algorithms, ensuring industry-leading accuracy in
                   demand predictions.
@@ -95,7 +100,7 @@ export const TeamSection = () => {
         >
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Our team combines academic excellence with practical industry
-            experience, ensuring ARK-Forecasting delivers both cutting-edge
+            experience, ensuring ARK Forecasting delivers both cutting-edge
             innovation and real-world results for your business.
           </p>
         </motion.div>

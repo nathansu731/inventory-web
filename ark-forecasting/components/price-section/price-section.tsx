@@ -1,13 +1,38 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import type React from "react";
+import {
+  type PricingPeriod,
+  PRICING_PLANS,
+} from "@/components/price-section/price-data";
+import { PricePlanCard } from "@/components/price-section/price-plan-card";
 
 type PriceSectionProps = {
   handleStartTrial: () => void;
+};
+
+const PricingPlansGrid = ({
+  period,
+  plans,
+  onPrimaryAction,
+}: {
+  onPrimaryAction: () => void;
+  period: PricingPeriod;
+  plans: typeof PRICING_PLANS.monthly;
+}) => {
+  return (
+    <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+      {plans.map((plan, index) => (
+        <PricePlanCard
+          key={plan.name}
+          delay={index * 0.1}
+          onPrimaryAction={onPrimaryAction}
+          period={period}
+          plan={plan}
+        />
+      ))}
+    </div>
+  );
 };
 
 export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
@@ -36,8 +61,8 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
             Choose Your Forecasting Plan
           </h2>
           <p className="max-w-[800px] text-muted-foreground md:text-lg">
-            Flexible pricing based on your SKU volume and forecasting needs. All
-            plans include a 14-day free trial.
+            Early bird clear pricing based on your SKU volume and forecasting needs. All
+            plans include a 30-day free trial. No hidden costs.
           </p>
         </motion.div>
 
@@ -54,200 +79,18 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
               </TabsList>
             </div>
             <TabsContent value="monthly">
-              <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
-                {[
-                  {
-                    name: "Starter",
-                    price: "$99",
-                    description:
-                      "Perfect for small businesses with up to 500 SKUs.",
-                    features: [
-                      "Up to 500 SKUs",
-                      "Basic demand forecasting",
-                      "Inventory optimization",
-                      "Email support",
-                      "CSV data import",
-                    ],
-                    cta: "Start Free Trial",
-                  },
-                  {
-                    name: "Professional",
-                    price: "$299",
-                    description:
-                      "Ideal for growing businesses with advanced needs.",
-                    features: [
-                      "Up to 5,000 SKUs",
-                      "Advanced AI forecasting",
-                      "Automated reordering",
-                      "Multi-channel integration",
-                      "Priority support",
-                      "API access",
-                    ],
-                    cta: "Start Free Trial",
-                    popular: true,
-                  },
-                  {
-                    name: "Enterprise",
-                    price: "$799",
-                    description:
-                      "For large organizations with complex supply chains.",
-                    features: [
-                      "Unlimited SKUs",
-                      "Custom forecasting models",
-                      "Advanced analytics",
-                      "Supplier integration",
-                      "24/7 dedicated support",
-                      "Custom integrations",
-                    ],
-                    cta: "Contact Sales",
-                  },
-                ].map((plan, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
-                    <Card
-                      className={`relative overflow-hidden h-full ${plan.popular ? "border-primary shadow-lg" : "border-border/40 shadow-md"} bg-gradient-to-b from-background to-muted/10 backdrop-blur`}
-                    >
-                      {plan.popular && (
-                        <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
-                          Most Popular
-                        </div>
-                      )}
-                      <CardContent className="p-6 flex flex-col h-full">
-                        <h3 className="text-2xl font-bold">{plan.name}</h3>
-                        <div className="flex items-baseline mt-4">
-                          <span className="text-4xl font-bold">
-                            {plan.price}
-                          </span>
-                          <span className="text-muted-foreground ml-1">
-                            /month
-                          </span>
-                        </div>
-                        <p className="text-muted-foreground mt-2">
-                          {plan.description}
-                        </p>
-                        <ul className="space-y-3 my-6 flex-grow">
-                          {plan.features.map((feature, j) => (
-                            <li key={j} className="flex items-center">
-                              <Check className="mr-2 size-4 text-primary" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Button
-                          className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
-                          variant={plan.popular ? "default" : "outline"}
-                          onClick={handleStartTrial}
-                        >
-                          {plan.cta}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
+              <PricingPlansGrid
+                period="monthly"
+                plans={PRICING_PLANS.monthly}
+                onPrimaryAction={handleStartTrial}
+              />
             </TabsContent>
             <TabsContent value="annually">
-              <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
-                {[
-                  {
-                    name: "Starter",
-                    price: "$79",
-                    description:
-                      "Perfect for small businesses with up to 500 SKUs.",
-                    features: [
-                      "Up to 500 SKUs",
-                      "Basic demand forecasting",
-                      "Inventory optimization",
-                      "Email support",
-                      "CSV data import",
-                    ],
-                    cta: "Start Free Trial",
-                  },
-                  {
-                    name: "Professional",
-                    price: "$239",
-                    description:
-                      "Ideal for growing businesses with advanced needs.",
-                    features: [
-                      "Up to 5,000 SKUs",
-                      "Advanced AI forecasting",
-                      "Automated reordering",
-                      "Multi-channel integration",
-                      "Priority support",
-                      "API access",
-                    ],
-                    cta: "Start Free Trial",
-                    popular: true,
-                  },
-                  {
-                    name: "Enterprise",
-                    price: "$639",
-                    description:
-                      "For large organizations with complex supply chains.",
-                    features: [
-                      "Unlimited SKUs",
-                      "Custom forecasting models",
-                      "Advanced analytics",
-                      "Supplier integration",
-                      "24/7 dedicated support",
-                      "Custom integrations",
-                    ],
-                    cta: "Contact Sales",
-                  },
-                ].map((plan, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                  >
-                    <Card
-                      className={`relative overflow-hidden h-full ${plan.popular ? "border-primary shadow-lg" : "border-border/40 shadow-md"} bg-gradient-to-b from-background to-muted/10 backdrop-blur`}
-                    >
-                      {plan.popular && (
-                        <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
-                          Most Popular
-                        </div>
-                      )}
-                      <CardContent className="p-6 flex flex-col h-full">
-                        <h3 className="text-2xl font-bold">{plan.name}</h3>
-                        <div className="flex items-baseline mt-4">
-                          <span className="text-4xl font-bold">
-                            {plan.price}
-                          </span>
-                          <span className="text-muted-foreground ml-1">
-                            /month
-                          </span>
-                        </div>
-                        <p className="text-muted-foreground mt-2">
-                          {plan.description}
-                        </p>
-                        <ul className="space-y-3 my-6 flex-grow">
-                          {plan.features.map((feature, j) => (
-                            <li key={j} className="flex items-center">
-                              <Check className="mr-2 size-4 text-primary" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Button
-                          className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
-                          variant={plan.popular ? "default" : "outline"}
-                          onClick={handleStartTrial}
-                        >
-                          {plan.cta}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
+              <PricingPlansGrid
+                period="annually"
+                plans={PRICING_PLANS.annually}
+                onPrimaryAction={handleStartTrial}
+              />
             </TabsContent>
           </Tabs>
         </div>

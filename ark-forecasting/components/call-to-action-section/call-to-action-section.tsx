@@ -37,13 +37,14 @@ export const CallToActionSection = ({
               className="rounded-full h-12 px-8 text-base"
               onClick={handleStartTrial}
             >
-              Start Free Trial
+              Get Early Access
               <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="rounded-full h-12 px-8 text-base bg-neutral-800 border-white text-white hover:bg-neutral-800/80"
+              onClick={handleStartTrial}
             >
               Contact Sales
             </Button>

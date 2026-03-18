@@ -26,7 +26,7 @@ export const TestimonialsSection = () => {
           </h2>
           <p className="max-w-[800px] text-muted-foreground md:text-lg">
             See how businesses are transforming their inventory management with
-            ARK-Forecasting.
+            ARK Forecasting.
           </p>
         </motion.div>
 
@@ -34,7 +34,7 @@ export const TestimonialsSection = () => {
           {[
             {
               quote:
-                "ARK-Forecasting reduced our stockouts by 85% while cutting inventory holding costs by 30%. The AI predictions are incredibly accurate.",
+                "ARK Forecasting reduced our stockouts by 85% while cutting inventory holding costs by 30%. The AI predictions are incredibly accurate.",
               author: "Sarah Chen",
               role: "Inventory Manager, Fashion Forward",
               rating: 5,
@@ -62,7 +62,7 @@ export const TestimonialsSection = () => {
             },
             {
               quote:
-                "Our forecast accuracy improved from 60% to 92% after switching to ARK-Forecasting. The ROI was immediate and substantial.",
+                "Our forecast accuracy improved from 60% to 92% after switching to ARK Forecasting. The ROI was immediate and substantial.",
               author: "Lisa Patel",
               role: "Demand Planner, Beauty Essentials",
               rating: 5,

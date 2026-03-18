@@ -22,18 +22,6 @@ export const ToggleButtons = ({
       <Button
         variant="ghost"
         size="icon"
-        onClick={toggleTheme}
-        className="rounded-full"
-      >
-        {mounted && theme === "dark" ? (
-          <Sun className="size-[18px]" />
-        ) : (
-          <Moon className="size-[18px]" />
-        )}
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         {mobileMenuOpen ? (

@@ -10,17 +10,23 @@ export const HeaderNavigation = () => {
       >
         Features
       </Link>
-      <Link
-        href="#testimonials"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Testimonials
-      </Link>
+      {/*<Link*/}
+      {/*  href="#testimonials"*/}
+      {/*  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"*/}
+      {/*>*/}
+      {/*  Testimonials*/}
+      {/*</Link>*/}
       <Link
         href="#team"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
       >
         Team
+      </Link>
+      <Link
+        href="#custom-features"
+        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+      >
+        customisations
       </Link>
       <Link
         href="#pricing"

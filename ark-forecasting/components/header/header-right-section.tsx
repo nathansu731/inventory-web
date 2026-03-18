@@ -8,7 +8,6 @@ type HeaderRightSectionProps = {
   handleStartTrial: () => void;
   mounted: boolean;
   theme: string | undefined;
-  handleBookDemo: () => void;
 };
 
 export const HeaderRightSection = ({
@@ -16,38 +15,28 @@ export const HeaderRightSection = ({
   handleStartTrial,
   mounted,
   theme,
-  handleBookDemo,
 }: HeaderRightSectionProps) => {
   return (
     <div className="hidden lg:flex gap-4 items-center">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={toggleTheme}
-        className="rounded-full"
-      >
-        {mounted && theme === "dark" ? (
-          <Sun className="size-[18px]" />
-        ) : (
-          <Moon className="size-[18px]" />
-        )}
-        <span className="sr-only">Toggle theme</span>
-      </Button>
       <Link
         href="#"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        onClick={(event) => {
+          event.preventDefault();
+          handleStartTrial();
+        }}
       >
         Log in
       </Link>
       <Button className="rounded-full" onClick={handleStartTrial}>
-        Start Free Trial
+        Get Early Access
         <ChevronRight className="ml-1 size-4" />
       </Button>
       <Button
         size="lg"
         variant="outline"
-        className="rounded-full h-12 px-8 text-base bg-transparent"
-        onClick={handleBookDemo}
+        className="hidden xl:inline-flex rounded-full h-12 px-8 text-base bg-transparent"
+        onClick={handleStartTrial}
       >
         Book a Demo
       </Button>

@@ -32,19 +32,26 @@ export const HeaderMobileNavigation = ({
             >
               Features
             </Link>
-            <Link
-              href="#testimonials"
-              className="py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Testimonials
-            </Link>
+            {/*<Link*/}
+            {/*  href="#testimonials"*/}
+            {/*  className="py-2 text-sm font-medium"*/}
+            {/*  onClick={() => setMobileMenuOpen(false)}*/}
+            {/*>*/}
+            {/*  Testimonials*/}
+            {/*</Link>*/}
             <Link
               href="#team"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Team
+            </Link>
+            <Link
+              href="#custom-features"
+              className="py-2 text-sm font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              customisations
             </Link>
             <Link
               href="#pricing"
@@ -64,12 +71,16 @@ export const HeaderMobileNavigation = ({
               <Link
                 href="#"
                 className="py-2 text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setMobileMenuOpen(false);
+                  handleStartTrial();
+                }}
               >
                 Log in
               </Link>
-              <Button className="rounded-full" onClick={handleStartTrial}>
-                Start Free Trial
+              <Button className="rounded-full mt-4 mb-4" onClick={handleStartTrial}>
+                Get Early Access
                 <ChevronRight className="ml-1 size-4" />
               </Button>
             </div>

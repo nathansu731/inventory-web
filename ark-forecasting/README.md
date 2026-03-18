@@ -2,7 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+1. Create local env file:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Configure required variables in `.env.local`:
+- `CONTENTFUL_SPACE_ID`
+- `CONTENTFUL_ACCESS_TOKEN`
+- `LEADS_FORWARD_TO_EMAIL` (for inbound leads, e.g. `info@arkforecasting.com.au`)
+- `AWS_SES_FROM_EMAIL` (must be a verified sender in SES, e.g. `noreply@arkforecasting.com.au`)
+- `AWS_REGION`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+
+3. Run the development server:
 
 ```bash
 npm run dev

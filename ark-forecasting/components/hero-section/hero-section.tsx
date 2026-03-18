@@ -7,13 +7,9 @@ import type React from "react";
 
 type HeroSectionProps = {
   handleStartTrial: () => void;
-  handleBookDemo: () => void;
 };
 
-export const HeroSection = ({
-  handleStartTrial,
-  handleBookDemo,
-}: HeroSectionProps) => {
+export const HeroSection = ({ handleStartTrial }: HeroSectionProps) => {
   return (
     <section className="w-full py-20 md:py-32 lg:py-40 overflow-hidden">
       <div className="container px-4 md:px-6 relative">
@@ -29,7 +25,7 @@ export const HeroSection = ({
             className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium"
             variant="secondary"
           >
-            AI-Powered Forecasting
+            AI-Powered Forecasting for Australian Businesses
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
             Predict Demand, Optimize Inventory
@@ -45,14 +41,14 @@ export const HeroSection = ({
               className="rounded-full h-12 px-8 text-base"
               onClick={handleStartTrial}
             >
-              Start Free Trial
+              Get Early Access
               <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="rounded-full h-12 px-8 text-base bg-transparent"
-              onClick={handleBookDemo}
+              onClick={handleStartTrial}
             >
               Book a Demo
             </Button>
@@ -64,11 +60,11 @@ export const HeroSection = ({
             </div>
             <div className="flex items-center gap-1">
               <Check className="size-4 text-primary" />
-              <span>14-day trial</span>
+              <span>Setup in minutes</span>
             </div>
             <div className="flex items-center gap-1">
               <Check className="size-4 text-primary" />
-              <span>Setup in minutes</span>
+              <span>Designed for Australian Businesses</span>
             </div>
           </div>
         </motion.div>
@@ -81,10 +77,10 @@ export const HeroSection = ({
         >
           <div className="rounded-xl overflow-hidden shadow-2xl border border-border/40 bg-gradient-to-b from-background to-muted/20">
             <Image
-              src="/dashboard-front-image.jpg"
+              src="/dashboard-front-image.png"
               width={1280}
               height={720}
-              alt="ARK-Forecasting dashboard showing demand predictions and inventory analytics"
+              alt="ARK Forecasting dashboard showing demand predictions and inventory analytics"
               className="w-full h-auto"
               priority
             />

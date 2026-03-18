@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ARK-Forecasting - AI-Powered Demand Forecasting & Inventory Optimization",
+  title: "ARK Forecasting - AI-Powered Demand Forecasting & Inventory Optimization",
   description:
     "Transform your inventory management with AI-powered demand forecasting. Reduce stockouts, minimize excess inventory, and maximize profitability.",
 }

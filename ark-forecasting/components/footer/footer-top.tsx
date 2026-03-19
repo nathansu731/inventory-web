@@ -138,7 +138,7 @@ export const FooterTop = () => {
           </li>
           <li>
             <Link
-              href="#"
+              href="/blog"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Blog

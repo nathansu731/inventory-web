@@ -1,5 +1,6 @@
 import {NextResponse} from 'next/server';
 import {z} from 'zod';
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
 export const runtime = "nodejs";
 
@@ -29,32 +30,6 @@ const toHtmlRows = (payload: Record<string, string>) =>
         `<tr><td style="padding:6px 10px;border:1px solid #ddd;font-weight:600">${key}</td><td style="padding:6px 10px;border:1px solid #ddd">${value || "-"}</td></tr>`,
     )
     .join("");
-
-const loadSesSdk = async () => {
-  const sdkModuleName = "@aws-sdk/client-ses";
-  return (await import(sdkModuleName)) as {
-    SESClient: new (config: {
-      credentials: {
-        accessKeyId: string;
-        secretAccessKey: string;
-      };
-      region: string;
-    }) => {
-      send: (command: unknown) => Promise<unknown>;
-    };
-    SendEmailCommand: new (input: {
-      Destination: { ToAddresses: string[] };
-      Message: {
-        Body: {
-          Html: { Charset: string; Data: string };
-          Text: { Charset: string; Data: string };
-        };
-        Subject: { Charset: string; Data: string };
-      };
-      Source: string;
-    }) => unknown;
-  };
-};
 
 export async function POST(request: Request) {
   const missing = missingEnvVars();
@@ -97,23 +72,6 @@ export async function POST(request: Request) {
       payload,
     )}</table>
   `;
-
-  let SESClient: Awaited<ReturnType<typeof loadSesSdk>>["SESClient"];
-  let SendEmailCommand: Awaited<
-    ReturnType<typeof loadSesSdk>
-  >["SendEmailCommand"];
-
-  try {
-    ({ SESClient, SendEmailCommand } = await loadSesSdk());
-  } catch {
-    return NextResponse.json(
-      {
-        error:
-          "AWS SDK not installed. Install @aws-sdk/client-ses and redeploy.",
-      },
-      { status: 500 },
-    );
-  }
 
   const sesClient = new SESClient({
     credentials: {

@@ -60,7 +60,7 @@ export const TeamSection = () => {
                   <div className="flex items-center justify-center gap-2">
                     <div className="size-2 rounded-full bg-primary"></div>
                     <span>
-                      Featured in Heidelberg Laureate Forum (World's Top 200
+                      Featured in Heidelberg Laureate Forum (World&apos;s Top 200
                       Researchers 2022)
                     </span>
                   </div>

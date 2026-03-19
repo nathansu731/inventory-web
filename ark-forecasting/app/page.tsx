@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/hero-section/hero-section";
 import { LogosSection } from "@/components/logos-section/logos-section";
 import { FeaturesSection } from "@/components/features-section/features-section";
 import { HowItWorksSection } from "@/components/how-it-works-section/how-it-works-section";
-import { TestimonialsSection } from "@/components/testimonials-section/testimonials-section";
 import { TeamSection } from "@/components/team-section/team-section";
 import { CustomFeaturesSection } from "@/components/custom-features-section/custom-features-section";
 import { PriceSection } from "@/components/price-section/price-section";
@@ -26,23 +25,17 @@ export default function LandingPage() {
     isDemoModalOpen,
     isScrolled,
     mobileMenuOpen,
-    mounted,
     setIsDemoModalOpen,
     setMobileMenuOpen,
     setShowTrialModal,
     showTrialModal,
     signupStep,
-    theme,
-    toggleTheme,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        toggleTheme={toggleTheme}
-        mounted={mounted}
-        theme={theme}
         handleStartTrial={handleStartTrial}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}

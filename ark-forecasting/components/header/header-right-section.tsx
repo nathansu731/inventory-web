@@ -1,21 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Moon, Sun } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import type React from "react";
 
 type HeaderRightSectionProps = {
-  toggleTheme: () => void;
   handleStartTrial: () => void;
-  mounted: boolean;
-  theme: string | undefined;
 };
 
-export const HeaderRightSection = ({
-  toggleTheme,
-  handleStartTrial,
-  mounted,
-  theme,
-}: HeaderRightSectionProps) => {
+export const HeaderRightSection = ({ handleStartTrial }: HeaderRightSectionProps) => {
   return (
     <div className="hidden lg:flex gap-4 items-center">
       <Link

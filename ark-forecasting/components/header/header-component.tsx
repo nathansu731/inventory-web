@@ -8,9 +8,6 @@ import { ToggleButtons } from "@/components/header/toggle-buttons";
 
 type HeaderComponentProps = {
   isScrolled: boolean;
-  toggleTheme: () => void;
-  mounted: boolean;
-  theme: string | undefined;
   handleStartTrial: () => void;
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   mobileMenuOpen: boolean;
@@ -18,9 +15,6 @@ type HeaderComponentProps = {
 
 export const HeaderComponent = ({
   isScrolled,
-  toggleTheme,
-  mounted,
-  theme,
   handleStartTrial,
   setMobileMenuOpen,
   mobileMenuOpen,
@@ -42,16 +36,8 @@ export const HeaderComponent = ({
           <span>ARK Forecasting</span>
         </Link>
         <HeaderNavigation />
-        <HeaderRightSection
-          toggleTheme={toggleTheme}
-          handleStartTrial={handleStartTrial}
-          mounted={mounted}
-          theme={theme}
-        />
+        <HeaderRightSection handleStartTrial={handleStartTrial} />
         <ToggleButtons
-          toggleTheme={toggleTheme}
-          mounted={mounted}
-          theme={theme}
           setMobileMenuOpen={setMobileMenuOpen}
           mobileMenuOpen={mobileMenuOpen}
         />

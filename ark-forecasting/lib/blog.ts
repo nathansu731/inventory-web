@@ -5,8 +5,9 @@ import { client } from "./contentful";
 export interface BlogPostFields {
   title: string;
   slug: string;
-  content: Document;
-  image?: {
+  body: Document;
+  publishedDate?: string;
+  coverImage?: {
     fields: {
       file: {
         url: string;
@@ -25,25 +26,27 @@ export interface BlogPost {
   title: string;
   slug: string;
   content: Document;
+  publishedDate?: string;
   image?: string;
 }
 
 function mapEntry(entry: Entry<BlogPostSkeleton>): BlogPost {
-  const fields = entry.fields as any;
+  const fields = entry.fields as BlogPostFields;
+  const imageUrl = fields.coverImage?.fields?.file?.url;
 
   return {
     title: fields.title,
     slug: fields.slug,
     content: fields.body,
-    image: fields.coverImage?.fields.file.url
-      ? "https:" + fields.coverImage.fields.file.url
-      : undefined,
+    publishedDate: fields.publishedDate,
+    image: imageUrl ? `https:${imageUrl}` : undefined,
   };
 }
 
 export async function getPosts(): Promise<BlogPost[]> {
   const res = await client.getEntries<BlogPostSkeleton>({
     content_type: "blogPost",
+    order: ["-fields.publishedDate"] as any,
   });
 
   return res.items.map(mapEntry);
@@ -56,11 +59,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     limit: 1,
   } as BlogPostQuery);
 
-  console.log(res.items[0].fields);
-
+  if (!res.items.length) return null;
   const item = res.items[0];
-
-  if (!item) return null;
-
   return mapEntry(item);
 }

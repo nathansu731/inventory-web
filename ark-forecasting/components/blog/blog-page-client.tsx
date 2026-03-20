@@ -47,7 +47,12 @@ export default function BlogPageClient({ posts }: Props) {
                   href={`/blog/${post.slug}`}
                   className="text-lg font-medium hover:underline cursor-pointer block mb-4"
                 >
-                  {post.title}
+                  <span>{post.title}</span>{" "}
+                  {post.publishedDate && (
+                    <span className="text-sm text-gray-500 ml-3">
+                      {new Date(post.publishedDate).toISOString().split("T")[0]}
+                    </span>
+                  )}
                 </Link>
               ))}
             </article>

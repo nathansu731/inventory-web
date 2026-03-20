@@ -54,6 +54,13 @@ export default function BlogPostClient({ post }: Props) {
                 />
               </div>
             )}
+            <div>
+              {post.publishedDate && (
+                <span className="text-sm text-gray-500">
+                  {new Date(post.publishedDate).toISOString().split("T")[0]}
+                </span>
+              )}
+            </div>
 
             <section className="space-y-6 mt-4 mb-14">
               {post.content && (

@@ -51,7 +51,7 @@ export const HeaderMobileNavigation = ({
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
-              customisations
+              Customisations
             </Link>
             <Link
               href="#pricing"

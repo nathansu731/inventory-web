@@ -58,24 +58,24 @@ export const TeamSection = () => {
                 </p>
                 <div className="space-y-3 text-sm text-muted-foreground mb-6">
                   <div className="flex items-center justify-center gap-2">
-                    <div className="size-2 rounded-full bg-primary"></div>
+                    <div className="size-2 rounded-full bg-primary max-[650px]:hidden"></div>
                     <span>
                       Featured in Heidelberg Laureate Forum (World&apos;s Top 200
                       Researchers 2022)
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="size-2 rounded-full bg-primary"></div>
+                    <div className="size-2 rounded-full bg-primary max-[650px]:hidden"></div>
                     <span>
                       Postdoctoral Research Fellow at Monash University, Melbourne
                     </span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="size-2 rounded-full bg-primary"></div>
+                    <div className="size-2 rounded-full bg-primary max-[650px]:hidden"></div>
                     <span>Ph.D. in Deep Learning for Optimization Systems</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="size-2 rounded-full bg-primary"></div>
+                    <div className="size-2 rounded-full bg-primary max-[650px]:hidden"></div>
                     <span>Expert in Time Series Forecasting & AI</span>
                   </div>
                 </div>

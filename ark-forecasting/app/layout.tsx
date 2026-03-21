@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   description:
     "Transform your inventory management with AI-powered demand forecasting. Reduce stockouts, minimize excess inventory, and maximize profitability.",
   icons: {
-    icon: "/ark-logo-black.png",
-    shortcut: "/ark-logo-black.png",
-    apple: "/ark-logo-black.png",
+    icon: "/fav-ico.png",
+    shortcut: "/fav-ico.png",
+    apple: "/fav-ico.png",
   },
 }
 

@@ -46,6 +46,7 @@ function mapEntry(entry: Entry<BlogPostSkeleton>): BlogPost {
 export async function getPosts(): Promise<BlogPost[]> {
   const res = await client.getEntries<BlogPostSkeleton>({
     content_type: "blogPost",
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     order: ["-fields.publishedDate"] as any,
   });
 

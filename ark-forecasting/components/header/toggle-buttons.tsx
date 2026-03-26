@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import type React from "react";
 
 type ToggleButtonsProps = {
@@ -11,9 +11,6 @@ type ToggleButtonsProps = {
 };
 
 export const ToggleButtons = ({
-  toggleTheme,
-  mounted,
-  theme,
   setMobileMenuOpen,
   mobileMenuOpen,
 }: ToggleButtonsProps) => {

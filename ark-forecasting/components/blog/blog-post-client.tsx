@@ -58,19 +58,24 @@ export default function BlogPostClient({ post, posts }: Props) {
             )}
             <div>
               {post.publishedDate && (
-                <span className="text-sm text-gray-500">
-                  {new Date(post.publishedDate).toISOString().split("T")[0]}
+                <span className="block text-xs uppercase tracking-[1.5px] text-white/75 mb-3">
+                  {new Date(post.publishedDate).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
                 </span>
               )}
             </div>
-
             <section className="space-y-6 mt-4 mb-14">
               {post.content && (
                 <div className="space-y-4">
                   {documentToReactComponents(post.content, {
                     renderNode: {
                       paragraph: (_node, children) => (
-                        <p className="text-sm leading-relaxed">{children}</p>
+                        <p className="text-[16px] leading-relaxed">
+                          {children}
+                        </p>
                       ),
                       "heading-1": (_node, children) => (
                         <h1 className="text-3xl font-bold">{children}</h1>

@@ -6,12 +6,14 @@ import { useLandingPageState } from "@/components/landing-page/use-landing-page-
 import { Footer } from "@/components/footer/footer";
 import Image from "next/image";
 import { BlogPost } from "@/lib/blog";
+import { BlogCard } from "@/components/blog/blog-card";
 
 interface Props {
   post: BlogPost;
+  posts: BlogPost[];
 }
 
-export default function BlogPostClient({ post }: Props) {
+export default function BlogPostClient({ post, posts }: Props) {
   console.log("Blog post object:", post);
 
   const {
@@ -103,9 +105,29 @@ export default function BlogPostClient({ post }: Props) {
               )}
             </section>
           </article>
+          {posts && posts.length > 1 && (
+            <section className="w-full mt-20 px-4 md:px-6 flex flex-col items-center">
+              <h2 className="text-2xl font-bold mb-8 text-center">
+                Recent Blogs
+              </h2>
+              <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+                {posts
+                  .filter((p) => p.slug !== post.slug)
+                  .slice(0, 2)
+                  .map((p) => (
+                    <BlogCard
+                      key={p.slug}
+                      title={p.title}
+                      slug={p.slug}
+                      publishedDate={p.publishedDate}
+                      image={p.image}
+                    />
+                  ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
-
       <Footer />
     </div>
   );

@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/hero-section/hero-section";
 import { LogosSection } from "@/components/logos-section/logos-section";
 import { FeaturesSection } from "@/components/features-section/features-section";
 import { HowItWorksSection } from "@/components/how-it-works-section/how-it-works-section";
-import { TestimonialsSection } from "@/components/testimonials-section/testimonials-section";
 import { TeamSection } from "@/components/team-section/team-section";
 import { CustomFeaturesSection } from "@/components/custom-features-section/custom-features-section";
 import { PriceSection } from "@/components/price-section/price-section";
@@ -52,7 +51,6 @@ export default function LandingPage() {
         <LogosSection />
         <FeaturesSection />
         <HowItWorksSection />
-        {/*<TestimonialsSection />*/}
         <TeamSection />
         <CustomFeaturesSection handleStartTrial={handleStartTrial} />
         <PriceSection handleStartTrial={handleStartTrial} />

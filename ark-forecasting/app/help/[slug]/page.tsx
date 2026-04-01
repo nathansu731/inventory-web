@@ -5,6 +5,7 @@ import { HeaderComponent } from "@/components/header/header-component";
 import { useLandingPageState } from "@/components/landing-page/use-landing-page-state";
 import Image from "next/image";
 import { Footer } from "@/components/footer/footer";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
@@ -22,7 +23,7 @@ export default function HelpPost({ params }: Props) {
     toggleTheme,
   } = useLandingPageState();
 
-  if (!help) return <div>Post not found</div>;
+  if (!help) notFound();
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent

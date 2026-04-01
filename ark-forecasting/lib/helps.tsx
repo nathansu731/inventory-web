@@ -4,7 +4,7 @@ export type Helps = {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   content: ReactNode;
 };
 
@@ -14,7 +14,7 @@ export const helps: Helps[] = [
     title: "How to Setup Dashboard",
     description:
       "Learn what demand forecasting is, why it matters, and how businesses use it to improve inventory, reduce costs, and increase profitability.",
-    image: "/help-images/ark-blog-post-1.jpg",
+    image: "/help-images/ark-what-is-demand-forecasting.jpg",
     content: (
       <>
         <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">

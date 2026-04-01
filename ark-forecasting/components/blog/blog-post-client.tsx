@@ -14,8 +14,6 @@ interface Props {
 }
 
 export default function BlogPostClient({ post, posts }: Props) {
-  console.log("Blog post object:", post);
-
   const {
     handleStartTrial,
     isScrolled,

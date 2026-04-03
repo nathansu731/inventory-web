@@ -45,7 +45,6 @@ export default function LandingPage() {
         <LogosSection />
         <FeaturesSection />
         <HowItWorksSection />
-        {/*<TestimonialsSection />*/}
         <TeamSection />
         <CustomFeaturesSection handleStartTrial={handleStartTrial} />
         <PriceSection handleStartTrial={handleStartTrial} />

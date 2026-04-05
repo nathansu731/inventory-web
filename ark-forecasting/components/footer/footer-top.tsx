@@ -85,7 +85,7 @@ export const FooterTop = () => {
         <ul className="space-y-2 text-sm">
           <li>
             <Link
-              href="#features"
+              href="/#features"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Features
@@ -93,7 +93,7 @@ export const FooterTop = () => {
           </li>
           <li>
             <Link
-              href="#pricing"
+              href="/#pricing"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Pricing

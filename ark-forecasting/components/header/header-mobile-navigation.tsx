@@ -26,7 +26,7 @@ export const HeaderMobileNavigation = ({
         >
           <div className="container py-4 flex flex-col gap-4">
             <Link
-              href="#features"
+              href="/#features"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -40,28 +40,28 @@ export const HeaderMobileNavigation = ({
             {/*  Testimonials*/}
             {/*</Link>*/}
             <Link
-              href="#team"
+              href="/#team"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Team
             </Link>
             <Link
-              href="#custom-features"
+              href="/#custom-features"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Customisations
             </Link>
             <Link
-              href="#pricing"
+              href="/#pricing"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Pricing
             </Link>
             <Link
-              href="#faq"
+              href="/#faq"
               className="py-2 text-sm font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >

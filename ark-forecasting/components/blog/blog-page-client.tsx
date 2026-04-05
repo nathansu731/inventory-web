@@ -15,19 +15,13 @@ export default function BlogPageClient({ posts }: Props) {
     handleStartTrial,
     isScrolled,
     mobileMenuOpen,
-    mounted,
     setMobileMenuOpen,
-    theme,
-    toggleTheme,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        toggleTheme={toggleTheme}
-        mounted={mounted}
-        theme={theme}
         handleStartTrial={handleStartTrial}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}

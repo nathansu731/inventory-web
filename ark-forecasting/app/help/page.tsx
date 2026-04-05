@@ -6,24 +6,18 @@ import { Footer } from "@/components/footer/footer";
 import Link from "next/link";
 import { helps } from "@/lib/helps";
 
-export default function BlogPage() {
+export default function HelpPage() {
   const {
     handleStartTrial,
     isScrolled,
     mobileMenuOpen,
-    mounted,
     setMobileMenuOpen,
-    theme,
-    toggleTheme,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        toggleTheme={toggleTheme}
-        mounted={mounted}
-        theme={theme}
         handleStartTrial={handleStartTrial}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}

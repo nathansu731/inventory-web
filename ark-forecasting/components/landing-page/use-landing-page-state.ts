@@ -7,6 +7,7 @@ import type {
   DemoFormData,
   TrialFormData,
 } from "@/components/sign-up-modal/types";
+import { trackEvent, trackLeadSubmit } from "@/lib/analytics";
 
 const DEFAULT_TRIAL_FORM: TrialFormData = {
   email: "",
@@ -46,6 +47,10 @@ export const useLandingPageState = () => {
   };
 
   const handleStartTrial = () => {
+    trackEvent("cta_click", {
+      cta_name: "get_early_access",
+      location: "landing_page",
+    });
     setShowTrialModal(true);
     setSignupStep(1);
   };
@@ -56,6 +61,7 @@ export const useLandingPageState = () => {
       leadType: "trial",
       payload: formData,
     });
+    trackLeadSubmit("trial");
     setSignupStep(2);
   };
 
@@ -64,6 +70,10 @@ export const useLandingPageState = () => {
   };
 
   const handleBookDemo = () => {
+    trackEvent("cta_click", {
+      cta_name: "book_demo",
+      location: "landing_page",
+    });
     setIsDemoModalOpen(true);
     setDemoStep(1);
   };
@@ -73,6 +83,7 @@ export const useLandingPageState = () => {
       leadType: "demo",
       payload: demoData,
     });
+    trackLeadSubmit("demo");
     setDemoStep(2);
   };
 

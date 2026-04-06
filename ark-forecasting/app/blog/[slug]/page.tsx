@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getPostBySlug } from "@/lib/blog";
 import { getPosts } from "@/lib/blog";
+import { getPostDescription } from "@/lib/blog";
 import BlogPostClient from "@/components/blog/blog-post-client";
 import { notFound } from "next/navigation";
 import { absoluteUrl } from "@/lib/site";
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const description = `Read "${post.title}" on ARK Forecasting for practical inventory and demand forecasting insights.`;
+  const description = getPostDescription(post);
 
   return {
     title: `${post.title} | ARK Blog`,
@@ -53,10 +54,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) notFound();
 
+  const description = getPostDescription(post);
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
+    description,
     datePublished: post.publishedDate,
     dateModified: post.publishedDate,
     image: post.image ? [post.image] : undefined,

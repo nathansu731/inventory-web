@@ -14,12 +14,8 @@ interface Props {
 }
 
 export default function BlogPostClient({ post, posts }: Props) {
-  const {
-    handleStartTrial,
-    isScrolled,
-    mobileMenuOpen,
-    setMobileMenuOpen,
-  } = useLandingPageState();
+  const { handleStartTrial, isScrolled, mobileMenuOpen, setMobileMenuOpen } =
+    useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
@@ -42,8 +38,8 @@ export default function BlogPostClient({ post, posts }: Props) {
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={800}
-                  height={533}
+                  width={1200}
+                  height={630}
                   className="rounded-lg w-[70%] h-auto object-cover mx-auto"
                 />
               </div>

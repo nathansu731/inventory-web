@@ -65,6 +65,13 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.publishedDate,
     image: post.image ? [post.image] : undefined,
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    author: post.author
+      ? {
+          "@type": "Person",
+          name: post.author.name,
+          ...(post.author.photo && { image: post.author.photo }),
+        }
+      : undefined,
     publisher: {
       "@type": "Organization",
       name: "ARK Forecasting",

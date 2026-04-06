@@ -6,14 +6,36 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import { ThemeProvider } from "@/components/theme-provider"
 import { RouteTracker } from "@/components/analytics/route-tracker"
+import { absoluteUrl, siteUrl } from "@/lib/site"
 
 const inter = Inter({ subsets: ["latin"] })
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "ARK Forecasting - AI-Powered Demand Forecasting & Inventory Optimization",
   description:
     "Transform your inventory management with AI-powered demand forecasting. Reduce stockouts, minimize excess inventory, and maximize profitability.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "ARK Forecasting - AI-Powered Demand Forecasting & Inventory Optimization",
+    description:
+      "Transform your inventory management with AI-powered demand forecasting. Reduce stockouts, minimize excess inventory, and maximize profitability.",
+    type: "website",
+    url: absoluteUrl("/"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ARK Forecasting - AI-Powered Demand Forecasting & Inventory Optimization",
+    description:
+      "Transform your inventory management with AI-powered demand forecasting. Reduce stockouts, minimize excess inventory, and maximize profitability.",
+  },
   icons: {
     icon: "/fav-ico.png",
     shortcut: "/fav-ico.png",

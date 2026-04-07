@@ -6,7 +6,17 @@ export interface BlogPostFields {
   title: string;
   slug: string;
   body: Document;
+  excerpt?: string;
   publishedDate?: string;
+  author?: {
+    fields: {
+      name: string;
+      bio?: Document;
+      photo?: {
+        fields: { file: { url: string } };
+      };
+    };
+  };
   coverImage?: {
     fields: {
       file: {
@@ -26,8 +36,21 @@ export interface BlogPost {
   title: string;
   slug: string;
   content: Document;
+  excerpt?: string;
   publishedDate?: string;
   image?: string;
+  author?: {
+    name: string;
+    bio?: Document;
+    photo?: string;
+  };
+}
+
+export function getPostDescription(post: BlogPost): string {
+  return (
+    post.excerpt ||
+    `Read "${post.title}" on ARK Forecasting for practical inventory and demand forecasting insights.`
+  );
 }
 
 function mapEntry(entry: Entry<BlogPostSkeleton>): BlogPost {
@@ -38,8 +61,18 @@ function mapEntry(entry: Entry<BlogPostSkeleton>): BlogPost {
     title: fields.title,
     slug: fields.slug,
     content: fields.body,
+    excerpt: fields.excerpt,
     publishedDate: fields.publishedDate,
-    image: imageUrl ? `https:${imageUrl}` : undefined,
+    image: imageUrl ? `https:${imageUrl}?w=1200` : undefined,
+    author: fields.author
+      ? {
+          name: fields.author.fields.name,
+          bio: fields.author.fields.bio,
+          photo: fields.author.fields.photo?.fields.file.url
+            ? `https:${fields.author.fields.photo.fields.file.url}?w=200`
+            : undefined,
+        }
+      : undefined,
   };
 }
 

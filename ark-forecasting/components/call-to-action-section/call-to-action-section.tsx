@@ -27,7 +27,7 @@ export const CallToActionSection = ({
             Ready to Optimize Your Inventory?
           </h2>
           <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
-            Join hundreds of businesses that have transformed their inventory
+            Join Australian businesses that have transformed their inventory
             management with AI-powered forecasting. Start your free trial today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">

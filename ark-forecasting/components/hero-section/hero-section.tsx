@@ -67,6 +67,26 @@ export const HeroSection = ({ handleStartTrial }: HeroSectionProps) => {
               <span>Designed for Australian Businesses</span>
             </div>
           </div>
+          <div className="mt-4 inline-flex flex-col items-center gap-2 rounded-2xl border border-border/60 bg-background/70 px-4 py-3 backdrop-blur-sm">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Local Demand Signals
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2 text-xs">
+              <span className="rounded-full border border-border/70 bg-muted/50 px-3 py-1">
+                EOFY stockpiling
+              </span>
+              <span className="rounded-full border border-border/70 bg-muted/50 px-3 py-1">
+                Easter swings
+              </span>
+              <span className="rounded-full border border-border/70 bg-muted/50 px-3 py-1">
+                Christmas peaks
+              </span>
+            </div>
+          </div>
+          <p className="mt-3 text-sm italic text-muted-foreground">
+            Built by a Monash University researcher featured among the World&apos;s Top 200 Scientists
+          </p>
+
         </motion.div>
 
         <motion.div

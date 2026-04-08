@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type React from "react";
 
 export const FooterTop = () => {
@@ -6,9 +7,13 @@ export const FooterTop = () => {
     <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
       <div className="space-y-4">
         <div className="flex items-center gap-2 font-bold">
-          <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-            A
-          </div>
+          <Image
+            src="/ark-logo-black.png"
+            alt="ARK Forecasting logo"
+            width={40}
+            height={40}
+            className="size-10 object-contain"
+          />
           <span>ARK Forecasting</span>
         </div>
         <p className="text-sm text-muted-foreground">

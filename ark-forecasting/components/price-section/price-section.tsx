@@ -61,8 +61,8 @@ export const PriceSection = ({ handleStartTrial }: PriceSectionProps) => {
             Choose Your Forecasting Plan
           </h2>
           <p className="max-w-[800px] text-muted-foreground md:text-lg">
-            Early bird clear pricing based on your SKU volume and forecasting needs. All
-            plans include a 30-day free trial. No hidden costs.
+            Early-bird pricing based on your SKU volume and forecasting needs.
+            Join early access now and lock in launch pricing.
           </p>
         </motion.div>
 

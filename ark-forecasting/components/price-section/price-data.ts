@@ -9,7 +9,7 @@ export type PricingPlan = {
   price: string;
 };
 
-const STARTER_FEATURES = [
+const LAUNCH_FEATURES = [
   "Up to 100 forecast units",
   "Limited forecasting models",
   "1 user",
@@ -27,7 +27,7 @@ const ENTERPRISE_FEATURES = [
   "Up to 300,000 forecast units",
   "Advanced forecasting models",
   "Unlimited users",
-  "Dedicated onboarding & support",
+  "Dedicated onboarding & support 24/7",
   "Advanced integrations",
   "Custom widgets",
 ];
@@ -37,23 +37,23 @@ export const PRICING_PLANS: Record<PricingPeriod, PricingPlan[]> = {
     {
       cta: "Get Early Access",
       description: "Perfect for getting started",
-      features: STARTER_FEATURES,
+      features: LAUNCH_FEATURES,
       name: "Launch",
-      price: "$0",
+      price: "$99",
     },
     {
       cta: "Get Early Access",
       description: "Great for growing teams",
       features: PROFESSIONAL_FEATURES,
-      name: "Core",
+      name: "Professional",
       popular: true,
-      price: "$99",
+      price: "$199",
     },
     {
-      cta: "Talk to an expert",
+      cta: "Contact Sales",
       description: "For advanced and large-scale planning",
       features: ENTERPRISE_FEATURES,
-      name: "Professional",
+      name: "Enterprise",
       price: "Custom",
     },
   ],
@@ -61,23 +61,23 @@ export const PRICING_PLANS: Record<PricingPeriod, PricingPlan[]> = {
     {
       cta: "Get Early Access",
       description: "Perfect for getting started",
-      features: STARTER_FEATURES,
+      features: LAUNCH_FEATURES,
       name: "Launch",
-      price: "$0",
+      price: "$950",
     },
     {
       cta: "Get Early Access",
       description: "Great for growing teams",
       features: PROFESSIONAL_FEATURES,
-      name: "Core",
+      name: "Professional",
       popular: true,
-      price: "$950",
+      price: "$1910",
     },
     {
-      cta: "Talk to an expert",
+      cta: "Contact Sales",
       description: "For advanced and large-scale planning",
       features: ENTERPRISE_FEATURES,
-      name: "Professional",
+      name: "Enterprise",
       price: "Custom",
     },
   ],

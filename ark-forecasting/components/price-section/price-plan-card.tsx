@@ -20,8 +20,8 @@ export const PricePlanCard = ({
   period,
   plan,
 }: PricePlanCardProps) => {
-  const showPeriodLabel = plan.name !== "Professional";
-  const periodLabel = period === "annually" ? "/anually" : "/month";
+  const showPeriodLabel = plan.price !== "Custom";
+  const periodLabel = period === "annually" ? "/annually" : "/month";
 
   return (
     <motion.div

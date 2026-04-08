@@ -30,22 +30,6 @@ const TRIAL_MODAL_COPY = {
     submitButton: "Join the waitlist",
     title: "Get Early Access",
   },
-  freeTrial: {
-    description:
-      "Get started with ARK Forecasting today. No credit card required.",
-    submitButton: "Create Free Account",
-    title: "Start Your Free Trial",
-  },
-} as const;
-
-const LEGACY_CONFIRMATION_COPY = {
-  description: "We've sent you a verification link to complete your signup.",
-  points: [
-    "Click the link in your email to verify your account",
-    "Complete your profile setup",
-    "Start your 14-day free trial",
-  ],
-  title: "Check Your Email",
 } as const;
 
 const WAITLIST_CONFIRMATION_COPY = {
@@ -55,7 +39,6 @@ const WAITLIST_CONFIRMATION_COPY = {
 } as const;
 
 const SUCCESS_MODAL_COPY = {
-  legacy: LEGACY_CONFIRMATION_COPY,
   waitlist: WAITLIST_CONFIRMATION_COPY,
 } as const;
 
@@ -180,7 +163,6 @@ export const TrialSignUpModal = ({
   setOpen,
   step,
 }: TrialSignUpModalProps) => {
-  // Keeping both copies makes it easy to switch back to free-trial text later.
   const activeCopy = TRIAL_MODAL_COPY.earlyAccess;
   const activeSuccessCopy = SUCCESS_MODAL_COPY.waitlist;
 

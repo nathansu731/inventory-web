@@ -28,7 +28,7 @@ export const CallToActionSection = ({
           </h2>
           <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
             Join Australian businesses that have transformed their inventory
-            management with AI-powered forecasting. Start your free trial today.
+            management with AI-powered forecasting. Join early access today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <Button
@@ -50,7 +50,7 @@ export const CallToActionSection = ({
             </Button>
           </div>
           <p className="text-sm text-primary-foreground/80 mt-4">
-            No credit card required. 14-day free trial. Setup in minutes.
+            Early access waitlist is open. No payment required to join.
           </p>
         </motion.div>
       </div>

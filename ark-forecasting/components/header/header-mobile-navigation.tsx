@@ -7,13 +7,13 @@ import type React from "react";
 type HeaderMobileNavigationProps = {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleStartTrial: () => void;
+  handleSignUp: () => void;
 };
 
 export const HeaderMobileNavigation = ({
   mobileMenuOpen,
   setMobileMenuOpen,
-  handleStartTrial,
+  handleSignUp,
 }: HeaderMobileNavigationProps) => {
   return (
     <>
@@ -67,20 +67,23 @@ export const HeaderMobileNavigation = ({
             >
               FAQ
             </Link>
+            <Link
+              href="/blog"
+              className="py-2 text-sm font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
             <div className="flex flex-col gap-2 pt-2 border-t">
               <Link
-                href="#"
+                href="https://app.arkforecasting.com.au/login"
                 className="py-2 text-sm font-medium"
-                onClick={(event) => {
-                  event.preventDefault();
-                  setMobileMenuOpen(false);
-                  handleStartTrial();
-                }}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Log in
               </Link>
-              <Button className="rounded-full mt-4 mb-4" onClick={handleStartTrial}>
-                Get Early Access
+              <Button className="rounded-full mt-4 mb-4" onClick={handleSignUp}>
+                Sign up for free
                 <ChevronRight className="ml-1 size-4" />
               </Button>
             </div>

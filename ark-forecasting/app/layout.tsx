@@ -1,14 +1,14 @@
 import type React from "react"
 import "./globals.css"
 import "./custom.css"
-import { Inter } from "next/font/google"
+import localFont from "next/font/local"
 import type { Metadata } from "next"
 import Script from "next/script"
 import { ThemeProvider } from "@/components/theme-provider"
 import { RouteTracker } from "@/components/analytics/route-tracker"
 import { absoluteUrl, siteUrl } from "@/lib/site"
 
-const inter = Inter({ subsets: ["latin"] })
+const geist = localFont({ src: "./fonts/GeistVF.woff" })
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Script>
       ) : null}
     </head>
-    <body className={inter.className}>
+    <body className={geist.className}>
     {gtmId ? (
       <noscript>
         <iframe

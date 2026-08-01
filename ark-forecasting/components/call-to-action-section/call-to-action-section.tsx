@@ -4,11 +4,13 @@ import { ArrowRight } from "lucide-react";
 import type React from "react";
 
 type CallToActionSectionProps = {
-  handleStartTrial: () => void;
+  handleContactSales: () => void;
+  handleSignUp: () => void;
 };
 
 export const CallToActionSection = ({
-  handleStartTrial,
+  handleContactSales,
+  handleSignUp,
 }: CallToActionSectionProps) => {
   return (
     <section className="w-full py-20 md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
@@ -28,29 +30,29 @@ export const CallToActionSection = ({
           </h2>
           <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
             Join Australian businesses that have transformed their inventory
-            management with AI-powered forecasting. Join early access today.
+            management with AI-powered forecasting. Start forecasting today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <Button
               size="lg"
               variant="secondary"
               className="rounded-full h-12 px-8 text-base"
-              onClick={handleStartTrial}
+              onClick={handleSignUp}
             >
-              Get Early Access
+              Sign up for free
               <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="rounded-full h-12 px-8 text-base bg-neutral-800 border-white text-white hover:bg-neutral-800/80"
-              onClick={handleStartTrial}
+              onClick={handleContactSales}
             >
               Contact Sales
             </Button>
           </div>
           <p className="text-sm text-primary-foreground/80 mt-4">
-            Early access waitlist is open. No payment required to join.
+            Start for free. No credit card required.
           </p>
         </motion.div>
       </div>

@@ -180,7 +180,7 @@ export const FooterTop = () => {
           </li>
           <li>
             <Link
-              href="#"
+              href="https://app.arkforecasting.com.au/privacy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
@@ -188,7 +188,7 @@ export const FooterTop = () => {
           </li>
           <li>
             <Link
-              href="#"
+              href="https://app.arkforecasting.com.au/terms"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms of Service

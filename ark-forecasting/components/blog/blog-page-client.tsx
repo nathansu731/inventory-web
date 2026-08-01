@@ -5,6 +5,7 @@ import { useLandingPageState } from "@/components/landing-page/use-landing-page-
 import { Footer } from "@/components/footer/footer";
 import { BlogPost } from "@/lib/blog";
 import { BlogCard } from "@/components/blog/blog-card";
+import { SignUpModal } from "@/components/sign-up-modal/sign-up-modal";
 
 interface Props {
   posts: BlogPost[];
@@ -12,17 +13,24 @@ interface Props {
 
 export default function BlogPageClient({ posts }: Props) {
   const {
-    handleStartTrial,
+    handleBookDemo,
+    handleLeadSubmit,
+    handleSignUp,
+    isLeadModalOpen,
     isScrolled,
     mobileMenuOpen,
     setMobileMenuOpen,
+    leadStep,
+    leadType,
+    setIsLeadModalOpen,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        handleStartTrial={handleStartTrial}
+        handleBookDemo={handleBookDemo}
+        handleSignUp={handleSignUp}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}
       />
@@ -50,6 +58,7 @@ export default function BlogPageClient({ posts }: Props) {
           </div>
         </section>
       </main>
+      <SignUpModal handleLeadSubmit={handleLeadSubmit} isLeadModalOpen={isLeadModalOpen} leadStep={leadStep} leadType={leadType} setIsLeadModalOpen={setIsLeadModalOpen} />
       <Footer />
     </div>
   );

@@ -3,7 +3,7 @@ type DataLayerEvent = {
   [key: string]: string | number | boolean | undefined;
 };
 
-type LeadType = "trial" | "demo";
+type LeadType = "demo" | "sales" | "expert";
 
 declare global {
   interface Window {
@@ -43,4 +43,3 @@ export const trackLeadSubmit = (leadType: LeadType) => {
     lead_type: leadType,
   });
 };
-

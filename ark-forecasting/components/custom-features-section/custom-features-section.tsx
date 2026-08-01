@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 type CustomFeaturesSectionProps = {
-  handleStartTrial: () => void;
+  handleTalkToExpert: () => void;
 };
 
 export const CustomFeaturesSection = ({
-  handleStartTrial,
+  handleTalkToExpert,
 }: CustomFeaturesSectionProps) => {
   return (
     <>
@@ -48,7 +48,7 @@ export const CustomFeaturesSection = ({
             <Button
               size="lg"
               className="mt-8 rounded-full h-12 px-8 text-base"
-              onClick={handleStartTrial}
+              onClick={handleTalkToExpert}
             >
               Talk to an expert
               <ArrowRight className="ml-2 size-4" />

@@ -3,31 +3,28 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 type HeaderRightSectionProps = {
-  handleStartTrial: () => void;
+  handleBookDemo: () => void;
+  handleSignUp: () => void;
 };
 
-export const HeaderRightSection = ({ handleStartTrial }: HeaderRightSectionProps) => {
+export const HeaderRightSection = ({ handleBookDemo, handleSignUp }: HeaderRightSectionProps) => {
   return (
     <div className="hidden lg:flex gap-4 items-center">
       <Link
-        href="#"
+        href="https://app.arkforecasting.com.au/login"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        onClick={(event) => {
-          event.preventDefault();
-          handleStartTrial();
-        }}
       >
         Log in
       </Link>
-      <Button className="rounded-full" onClick={handleStartTrial}>
-        Get Early Access
+      <Button className="rounded-full" onClick={handleSignUp}>
+        Sign up for free
         <ChevronRight className="ml-1 size-4" />
       </Button>
       <Button
         size="lg"
         variant="outline"
         className="hidden xl:inline-flex rounded-full h-12 px-8 text-base bg-transparent"
-        onClick={handleStartTrial}
+        onClick={handleBookDemo}
       >
         Book a Demo
       </Button>

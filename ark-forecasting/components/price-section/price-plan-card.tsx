@@ -2,26 +2,21 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type {
-  PricingPeriod,
-  PricingPlan,
-} from "@/components/price-section/price-data";
+import type { PricingPlan } from "@/components/price-section/price-data";
 
 type PricePlanCardProps = {
   delay: number;
-  onPrimaryAction: () => void;
-  period: PricingPeriod;
+  onPrimaryAction: (action: PricingPlan["action"]) => void;
   plan: PricingPlan;
 };
 
 export const PricePlanCard = ({
   delay,
   onPrimaryAction,
-  period,
   plan,
 }: PricePlanCardProps) => {
   const showPeriodLabel = plan.price !== "Custom";
-  const periodLabel = period === "annually" ? "/annually" : "/month";
+  const periodLabel = "/month";
 
   return (
     <motion.div
@@ -66,7 +61,7 @@ export const PricePlanCard = ({
                 : "bg-muted hover:bg-muted/80"
             }`}
             variant={plan.popular ? "default" : "outline"}
-            onClick={onPrimaryAction}
+            onClick={() => onPrimaryAction(plan.action)}
           >
             {plan.cta}
           </Button>

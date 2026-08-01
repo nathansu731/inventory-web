@@ -6,10 +6,11 @@ import Image from "next/image";
 import type React from "react";
 
 type HeroSectionProps = {
-  handleStartTrial: () => void;
+  handleBookDemo: () => void;
+  handleSignUp: () => void;
 };
 
-export const HeroSection = ({ handleStartTrial }: HeroSectionProps) => {
+export const HeroSection = ({ handleBookDemo, handleSignUp }: HeroSectionProps) => {
   return (
     <section className="w-full py-20 overflow-hidden">
       <div className="container px-4 md:px-6 relative">
@@ -39,16 +40,16 @@ export const HeroSection = ({ handleStartTrial }: HeroSectionProps) => {
             <Button
               size="lg"
               className="rounded-full h-12 px-8 text-base"
-              onClick={handleStartTrial}
+              onClick={handleSignUp}
             >
-              Get Early Access
+              Sign up for free
               <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="rounded-full h-12 px-8 text-base bg-transparent"
-              onClick={handleStartTrial}
+              onClick={handleBookDemo}
             >
               Book a Demo
             </Button>
@@ -60,7 +61,7 @@ export const HeroSection = ({ handleStartTrial }: HeroSectionProps) => {
             </div>
             <div className="flex items-center gap-1">
               <Check className="size-4 text-primary" />
-              <span>Setup in minutes</span>
+              <span>Set up in 2 minutes</span>
             </div>
             <div className="flex items-center gap-1">
               <Check className="size-4 text-primary" />

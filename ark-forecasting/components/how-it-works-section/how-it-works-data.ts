@@ -7,9 +7,9 @@ export const howItWorksData = [
   },
   {
     step: "02",
-    title: "Chat with ARK AI",
+    title: "Chat with ARK Copilot",
     description:
-      "Adjust the default config or Ask ARK AI things such as \"When we will have highest sales for SKU 001?\"" ,
+      "Adjust the default config or ask ARK Copilot things such as \"When will we have the highest sales for SKU 001?\"",
   },
   {
     step: "03",

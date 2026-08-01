@@ -40,6 +40,12 @@ export const HeaderNavigation = () => {
       >
         FAQ
       </Link>
+      <Link
+        href="/blog"
+        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+      >
+        Blog
+      </Link>
     </nav>
   );
 };

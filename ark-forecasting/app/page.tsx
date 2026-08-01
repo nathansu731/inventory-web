@@ -16,52 +16,46 @@ import { Footer } from "@/components/footer/footer";
 
 export default function LandingPage() {
   const {
-    demoStep,
-    formData,
-    handleDemoSubmit,
-    handleFormSubmit,
-    handleInputChange,
-    handleStartTrial,
-    isDemoModalOpen,
+    handleBookDemo,
+    handleContactSales,
+    handleLeadSubmit,
+    handleSignUp,
+    handleTalkToExpert,
+    isLeadModalOpen,
     isScrolled,
     mobileMenuOpen,
-    setIsDemoModalOpen,
+    leadStep,
+    leadType,
+    setIsLeadModalOpen,
     setMobileMenuOpen,
-    setShowTrialModal,
-    showTrialModal,
-    signupStep,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        handleStartTrial={handleStartTrial}
+        handleBookDemo={handleBookDemo}
+        handleSignUp={handleSignUp}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}
       />
       <main className="flex-1">
-        <HeroSection handleStartTrial={handleStartTrial} />
+        <HeroSection handleBookDemo={handleBookDemo} handleSignUp={handleSignUp} />
         <LogosSection />
         <FeaturesSection />
         <HowItWorksSection />
         <TeamSection />
-        <CustomFeaturesSection handleStartTrial={handleStartTrial} />
-        <PriceSection handleStartTrial={handleStartTrial} />
+        <CustomFeaturesSection handleTalkToExpert={handleTalkToExpert} />
+        <PriceSection handleContactSales={handleContactSales} handleSignUp={handleSignUp} />
         <FaqSection />
-        <CallToActionSection handleStartTrial={handleStartTrial} />
+        <CallToActionSection handleContactSales={handleContactSales} handleSignUp={handleSignUp} />
       </main>
       <SignUpModal
-        showTrialModal={showTrialModal}
-        setShowTrialModal={setShowTrialModal}
-        signupStep={signupStep}
-        handleFormSubmit={handleFormSubmit}
-        formData={formData}
-        handleInputChange={handleInputChange}
-        isDemoModalOpen={isDemoModalOpen}
-        setIsDemoModalOpen={setIsDemoModalOpen}
-        demoStep={demoStep}
-        handleDemoSubmit={handleDemoSubmit}
+        handleLeadSubmit={handleLeadSubmit}
+        isLeadModalOpen={isLeadModalOpen}
+        leadStep={leadStep}
+        leadType={leadType}
+        setIsLeadModalOpen={setIsLeadModalOpen}
       />
       <Footer />
     </div>

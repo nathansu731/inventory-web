@@ -5,8 +5,12 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 export const runtime = "nodejs";
 
 const leadSchema = z.object({
-  leadType: z.enum(["trial", "demo"]),
-  payload: z.record(z.string(), z.string()),
+  leadType: z.enum(["demo", "sales", "expert"]),
+  payload: z
+    .record(z.string(), z.string())
+    .refine((payload) => (payload.notes?.length ?? 0) <= 600, {
+      message: "Notes must be 600 characters or fewer",
+    }),
 });
 
 const requiredEnv = [
@@ -23,13 +27,21 @@ const missingEnvVars = () =>
     return !value || value.trim().length === 0;
   });
 
+const escapeHtml = (value: string) =>
+  value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/'/g, "&#039;");
+
 const toHtmlRows = (payload: Record<string, string>) =>
   Object.entries(payload)
     .map(
       ([key, value]) =>
-        `<tr><td style="padding:6px 10px;border:1px solid #ddd;font-weight:600">${key}</td><td style="padding:6px 10px;border:1px solid #ddd">${value || "-"}</td></tr>`,
+        `<tr><td style="padding:6px 10px;border:1px solid #ddd;font-weight:600">${escapeHtml(key)}</td><td style="padding:6px 10px;border:1px solid #ddd">${escapeHtml(value || "-")}</td></tr>`,
     )
     .join("");
+
+const toTextRows = (payload: Record<string, string>) =>
+  Object.entries(payload)
+    .map(([key, value]) => `${key}: ${value || "-"}`)
+    .join("\n");
 
 export async function POST(request: Request) {
   const missing = missingEnvVars();
@@ -61,10 +73,12 @@ export async function POST(request: Request) {
   }
 
   const { leadType, payload } = parsed.data;
-  const subject =
-    leadType === "trial"
-      ? "New Trial Signup Lead - ARK Forecasting"
-      : "New Demo Booking Lead - ARK Forecasting";
+  const leadLabels = {
+    demo: "Demo Booking",
+    sales: "Contact Sales",
+    expert: "Talk to an Expert",
+  } as const;
+  const subject = `New ${leadLabels[leadType]} Lead - ARK Forecasting`;
 
   const html = `
     <h2>${subject}</h2>
@@ -95,9 +109,7 @@ export async function POST(request: Request) {
             },
             Text: {
               Charset: "UTF-8",
-              Data: `New ${
-                leadType === "trial" ? "trial signup" : "demo booking"
-              } lead received.`,
+              Data: `${subject}\n\n${toTextRows(payload)}`,
             },
           },
           Subject: {

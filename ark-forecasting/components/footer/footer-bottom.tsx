@@ -9,22 +9,16 @@ export const FooterBottom = () => {
       </p>
       <div className="flex gap-4">
         <Link
-          href="#"
+          href="https://app.arkforecasting.com.au/privacy"
           className="text-xs text-muted-foreground hover:text-foreground transition-colors"
         >
           Privacy Policy
         </Link>
         <Link
-          href="#"
+          href="https://app.arkforecasting.com.au/terms"
           className="text-xs text-muted-foreground hover:text-foreground transition-colors"
         >
           Terms of Service
-        </Link>
-        <Link
-          href="#"
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Cookie Policy
         </Link>
       </div>
     </div>

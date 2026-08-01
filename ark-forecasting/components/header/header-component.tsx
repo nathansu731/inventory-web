@@ -7,15 +7,17 @@ import { HeaderRightSection } from "@/components/header/header-right-section";
 import { ToggleButtons } from "@/components/header/toggle-buttons";
 
 type HeaderComponentProps = {
+  handleBookDemo: () => void;
+  handleSignUp: () => void;
   isScrolled: boolean;
-  handleStartTrial: () => void;
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   mobileMenuOpen: boolean;
 };
 
 export const HeaderComponent = ({
   isScrolled,
-  handleStartTrial,
+  handleBookDemo,
+  handleSignUp,
   setMobileMenuOpen,
   mobileMenuOpen,
 }: HeaderComponentProps) => {
@@ -36,7 +38,7 @@ export const HeaderComponent = ({
           <span>ARK Forecasting</span>
         </Link>
         <HeaderNavigation />
-        <HeaderRightSection handleStartTrial={handleStartTrial} />
+        <HeaderRightSection handleBookDemo={handleBookDemo} handleSignUp={handleSignUp} />
         <ToggleButtons
           setMobileMenuOpen={setMobileMenuOpen}
           mobileMenuOpen={mobileMenuOpen}
@@ -45,7 +47,7 @@ export const HeaderComponent = ({
       <HeaderMobileNavigation
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-        handleStartTrial={handleStartTrial}
+        handleSignUp={handleSignUp}
       />
     </header>
   );

@@ -4,6 +4,7 @@ import { useLandingPageState } from "@/components/landing-page/use-landing-page-
 import { HeaderComponent } from "@/components/header/header-component";
 import Image from "next/image";
 import { Footer } from "@/components/footer/footer";
+import { SignUpModal } from "@/components/sign-up-modal/sign-up-modal";
 import type { Helps } from "@/lib/helps";
 
 type Props = {
@@ -12,17 +13,24 @@ type Props = {
 
 export function HelpPostClient({ help }: Props) {
   const {
-    handleStartTrial,
+    handleBookDemo,
+    handleLeadSubmit,
+    handleSignUp,
+    isLeadModalOpen,
     isScrolled,
     mobileMenuOpen,
     setMobileMenuOpen,
+    leadStep,
+    leadType,
+    setIsLeadModalOpen,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        handleStartTrial={handleStartTrial}
+        handleBookDemo={handleBookDemo}
+        handleSignUp={handleSignUp}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}
       />
@@ -51,6 +59,7 @@ export function HelpPostClient({ help }: Props) {
         </div>
       </main>
 
+      <SignUpModal handleLeadSubmit={handleLeadSubmit} isLeadModalOpen={isLeadModalOpen} leadStep={leadStep} leadType={leadType} setIsLeadModalOpen={setIsLeadModalOpen} />
       <Footer />
     </div>
   );

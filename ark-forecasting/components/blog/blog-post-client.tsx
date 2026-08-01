@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer/footer";
 import Image from "next/image";
 import { BlogPost } from "@/lib/blog";
 import { BlogCard } from "@/components/blog/blog-card";
+import { SignUpModal } from "@/components/sign-up-modal/sign-up-modal";
 
 interface Props {
   post: BlogPost;
@@ -14,14 +15,25 @@ interface Props {
 }
 
 export default function BlogPostClient({ post, posts }: Props) {
-  const { handleStartTrial, isScrolled, mobileMenuOpen, setMobileMenuOpen } =
-    useLandingPageState();
+  const {
+    handleBookDemo,
+    handleLeadSubmit,
+    handleSignUp,
+    isLeadModalOpen,
+    isScrolled,
+    leadStep,
+    leadType,
+    mobileMenuOpen,
+    setIsLeadModalOpen,
+    setMobileMenuOpen,
+  } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        handleStartTrial={handleStartTrial}
+        handleBookDemo={handleBookDemo}
+        handleSignUp={handleSignUp}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}
       />
@@ -121,6 +133,13 @@ export default function BlogPostClient({ post, posts }: Props) {
           )}
         </div>
       </main>
+      <SignUpModal
+        handleLeadSubmit={handleLeadSubmit}
+        isLeadModalOpen={isLeadModalOpen}
+        leadStep={leadStep}
+        leadType={leadType}
+        setIsLeadModalOpen={setIsLeadModalOpen}
+      />
       <Footer />
     </div>
   );

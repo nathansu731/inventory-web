@@ -13,8 +13,11 @@ export type DemoFormData = {
   email: string;
   fullName: string;
   interests: string;
+  notes: string;
   preferredDemoTime: string;
 };
+
+export type LeadType = "demo" | "sales" | "expert";
 
 export type TrialSubmitHandler = (
   event: React.FormEvent,

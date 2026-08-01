@@ -1,6 +1,7 @@
-export type PricingPeriod = "monthly" | "annually";
+export type PricingAction = "signup" | "sales";
 
 export type PricingPlan = {
+  action: PricingAction;
   cta: string;
   description: string;
   features: string[];
@@ -9,76 +10,31 @@ export type PricingPlan = {
   price: string;
 };
 
-const LAUNCH_FEATURES = [
-  "Up to 100 forecast units",
-  "Limited forecasting models",
-  "1 user",
+// Keep this public pricing aligned with the plan cards in the app dashboard.
+export const PRICING_PLANS: PricingPlan[] = [
+  {
+    action: "signup",
+    cta: "Sign up for free",
+    description: "Perfect for getting started",
+    features: ["Up to 3 projects", "Basic support", "1GB storage", "Community access"],
+    name: "Launch",
+    price: "$99",
+  },
+  {
+    action: "signup",
+    cta: "Sign up for free",
+    description: "Great for growing teams",
+    features: ["Up to 10 projects", "Priority support", "50GB storage", "Team collaboration", "Advanced analytics"],
+    name: "Professional",
+    popular: true,
+    price: "$199",
+  },
+  {
+    action: "sales",
+    cta: "Contact Sales",
+    description: "For scale and custom requirements",
+    features: ["Unlimited projects", "24/7 dedicated support", "Custom storage", "Advanced integrations", "Custom workflows", "SSO & security"],
+    name: "Enterprise",
+    price: "Custom",
+  },
 ];
-
-const PROFESSIONAL_FEATURES = [
-  "Up to 5000 forecast units",
-  "Higher level forecasting models",
-  "5 users",
-  "24/7 support",
-  "Limited integrations",
-];
-
-const ENTERPRISE_FEATURES = [
-  "Up to 300,000 forecast units",
-  "Advanced forecasting models",
-  "Unlimited users",
-  "Dedicated onboarding & support 24/7",
-  "Advanced integrations",
-  "Custom widgets",
-];
-
-export const PRICING_PLANS: Record<PricingPeriod, PricingPlan[]> = {
-  monthly: [
-    {
-      cta: "Get Early Access",
-      description: "Perfect for getting started",
-      features: LAUNCH_FEATURES,
-      name: "Launch",
-      price: "$99",
-    },
-    {
-      cta: "Get Early Access",
-      description: "Great for growing teams",
-      features: PROFESSIONAL_FEATURES,
-      name: "Professional",
-      popular: true,
-      price: "$199",
-    },
-    {
-      cta: "Contact Sales",
-      description: "For advanced and large-scale planning",
-      features: ENTERPRISE_FEATURES,
-      name: "Enterprise",
-      price: "Custom",
-    },
-  ],
-  annually: [
-    {
-      cta: "Get Early Access",
-      description: "Perfect for getting started",
-      features: LAUNCH_FEATURES,
-      name: "Launch",
-      price: "$950",
-    },
-    {
-      cta: "Get Early Access",
-      description: "Great for growing teams",
-      features: PROFESSIONAL_FEATURES,
-      name: "Professional",
-      popular: true,
-      price: "$1910",
-    },
-    {
-      cta: "Contact Sales",
-      description: "For advanced and large-scale planning",
-      features: ENTERPRISE_FEATURES,
-      name: "Enterprise",
-      price: "Custom",
-    },
-  ],
-};

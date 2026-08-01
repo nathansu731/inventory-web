@@ -3,22 +3,30 @@
 import { HeaderComponent } from "@/components/header/header-component";
 import { useLandingPageState } from "@/components/landing-page/use-landing-page-state";
 import { Footer } from "@/components/footer/footer";
+import { SignUpModal } from "@/components/sign-up-modal/sign-up-modal";
 import Link from "next/link";
 import { helps } from "@/lib/helps";
 
 export default function HelpPage() {
   const {
-    handleStartTrial,
+    handleBookDemo,
+    handleLeadSubmit,
+    handleSignUp,
+    isLeadModalOpen,
     isScrolled,
     mobileMenuOpen,
     setMobileMenuOpen,
+    leadStep,
+    leadType,
+    setIsLeadModalOpen,
   } = useLandingPageState();
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <HeaderComponent
         isScrolled={isScrolled}
-        handleStartTrial={handleStartTrial}
+        handleBookDemo={handleBookDemo}
+        handleSignUp={handleSignUp}
         setMobileMenuOpen={setMobileMenuOpen}
         mobileMenuOpen={mobileMenuOpen}
       />
@@ -42,6 +50,7 @@ export default function HelpPage() {
           </div>
         </section>
       </main>
+      <SignUpModal handleLeadSubmit={handleLeadSubmit} isLeadModalOpen={isLeadModalOpen} leadStep={leadStep} leadType={leadType} setIsLeadModalOpen={setIsLeadModalOpen} />
       <Footer />
     </div>
   );

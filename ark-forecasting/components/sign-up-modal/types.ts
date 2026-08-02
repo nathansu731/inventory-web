@@ -9,12 +9,9 @@ export type TrialFormData = {
 
 export type DemoFormData = {
   companyName: string;
-  companySize: string;
   email: string;
   fullName: string;
-  interests: string;
   notes: string;
-  preferredDemoTime: string;
 };
 
 export type LeadType = "demo" | "sales" | "expert";

@@ -46,12 +46,9 @@ const DemoBookingForm = ({
 
     const demoData: DemoFormData = {
       companyName: String(formData.get("companyName") ?? ""),
-      companySize: String(formData.get("companySize") ?? ""),
       email: String(formData.get("email") ?? ""),
       fullName: String(formData.get("fullName") ?? ""),
-      interests: String(formData.get("interests") ?? ""),
       notes: String(formData.get("notes") ?? ""),
-      preferredDemoTime: String(formData.get("preferredDemoTime") ?? ""),
     };
 
     try {
@@ -66,100 +63,54 @@ const DemoBookingForm = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
+        <label className="mb-2 block text-sm font-medium text-foreground">
           Full Name
         </label>
         <input
           name="fullName"
           type="text"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-ring"
           placeholder="Enter your full name"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
+        <label className="mb-2 block text-sm font-medium text-foreground">
           Work Email
         </label>
         <input
           name="email"
           type="email"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-ring"
           placeholder="you@company.com"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
+        <label className="mb-2 block text-sm font-medium text-foreground">
           Company Name
         </label>
         <input
           name="companyName"
           type="text"
           required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-ring"
           placeholder="Your company name"
         />
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
-          Company Size
-        </label>
-        <select
-          name="companySize"
-          required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="">Select company size</option>
-          <option value="1-10">1-10 employees</option>
-          <option value="11-50">11-50 employees</option>
-          <option value="51-200">51-200 employees</option>
-          <option value="201-1000">201-1000 employees</option>
-          <option value="1000+">1000+ employees</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
-          Preferred Demo Time
-        </label>
-        <select
-          name="preferredDemoTime"
-          required
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="">Select preferred time</option>
-          <option value="morning">Morning (9 AM - 12 PM)</option>
-          <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-          <option value="evening">Evening (5 PM - 8 PM)</option>
-        </select>
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
-          What interests you most?
-        </label>
-        <textarea
-          name="interests"
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-          rows={3}
-          placeholder="Tell us about your forecasting challenges or specific features you'd like to see..."
-        />
-      </div>
-
-      <div>
-        <label htmlFor="notes" className="mb-2 block text-sm font-medium text-gray-700">
-          Notes <span className="font-normal text-gray-500">(optional, up to 600 characters)</span>
+        <label htmlFor="notes" className="mb-2 block text-sm font-medium text-foreground">
+          Notes <span className="font-normal text-muted-foreground">(optional, up to 600 characters)</span>
         </label>
         <textarea
           id="notes"
           name="notes"
           maxLength={600}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
-          rows={4}
+          className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-transparent focus:ring-2 focus:ring-ring"
+          rows={2}
           placeholder="Tell us anything that will help us prepare."
         />
       </div>
@@ -177,7 +128,7 @@ const DemoBookingForm = ({
         </Button>
         <Button
           type="submit"
-          className="flex-1 bg-black text-white hover:bg-neutral-800"
+          className="flex-1"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending…" : submitButtonText}
@@ -190,35 +141,35 @@ const DemoBookingForm = ({
 const DemoBookingSuccessState = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className="text-center">
-      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-        <CheckCircle className="h-8 w-8 text-green-600" />
+      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+        <CheckCircle className="h-8 w-8 text-primary" />
       </div>
-      <h3 className="mb-4 text-2xl font-bold text-gray-900">Request received!</h3>
-      <p className="mb-6 text-gray-600">
+      <h3 className="mb-4 text-2xl font-bold text-foreground">Request received!</h3>
+      <p className="mb-6 text-muted-foreground">
         Thanks for contacting ARK Forecasting. Our team will be in touch within
         12 hours.
       </p>
 
       <div className="mb-8 space-y-4 text-left">
         <div className="flex items-start gap-3">
-          <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
-            <span className="text-sm font-semibold text-blue-600">1</span>
+          <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+            <span className="text-sm font-semibold text-primary">1</span>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900">We review your request</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-semibold text-foreground">We review your request</h4>
+            <p className="text-sm text-muted-foreground">
               We use the details you shared to prepare for the conversation.
             </p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
-            <span className="text-sm font-semibold text-blue-600">2</span>
+          <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+            <span className="text-sm font-semibold text-primary">2</span>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900">A specialist gets in touch</h4>
-            <p className="text-sm text-gray-600">
+            <h4 className="font-semibold text-foreground">A specialist gets in touch</h4>
+            <p className="text-sm text-muted-foreground">
               We’ll help with the next best step for your business.
             </p>
           </div>
@@ -249,19 +200,19 @@ export const LeadEnquiryModal = ({
       onClick={() => setOpen(false)}
     >
       <div
-        className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-8"
+        className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-2xl border border-border bg-background p-8 text-foreground shadow-xl"
         onClick={(event) => event.stopPropagation()}
       >
         {step === 1 ? (
           <>
             <div className="mb-6 text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                <Calendar className="h-6 w-6 text-blue-600" />
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <Calendar className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-gray-900">
+              <h3 className="mb-2 text-2xl font-bold text-foreground">
                 {ENQUIRY_COPY[leadType].title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 {RESPONSE_TIME_COPY}
               </p>
             </div>

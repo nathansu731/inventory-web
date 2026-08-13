@@ -1,6 +1,6 @@
 import type React from "react";
 
-export type TrialFormData = {
+export type SignupFormData = {
   company: string;
   email: string;
   firstName: string;
@@ -16,7 +16,7 @@ export type DemoFormData = {
 
 export type LeadType = "demo" | "sales" | "expert";
 
-export type TrialSubmitHandler = (
+export type SignupSubmitHandler = (
   event: React.FormEvent,
 ) => void | Promise<void>;
 
@@ -24,7 +24,7 @@ export type DemoSubmitHandler = (
   data: DemoFormData,
 ) => void | Promise<void>;
 
-export type TrialInputChangeHandler = (
-  field: keyof TrialFormData,
+export type SignupInputChangeHandler = (
+  field: keyof SignupFormData,
   value: string,
 ) => void;

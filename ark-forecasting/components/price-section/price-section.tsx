@@ -39,11 +39,11 @@ export const PriceSection = ({ handleContactSales, handleSignUp }: PriceSectionP
             Choose Your Forecasting Plan
           </h2>
           <p className="max-w-[800px] text-muted-foreground md:text-lg">
-            Simple monthly pricing for your forecasting needs. Cancel anytime.
+            Start free with no expiry, then upgrade when you need more monthly SKU runs.
           </p>
         </motion.div>
 
-        <div className="mx-auto max-w-5xl grid gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="mx-auto max-w-7xl grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
           {PRICING_PLANS.map((plan, index) => (
             <PricePlanCard
               key={plan.name}

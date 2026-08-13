@@ -20,13 +20,13 @@ export const faqList = [
       "Yes, we offer integrations with popular e-commerce platforms (Shopify, Amazon, WooCommerce), ERPs (NetSuite, SAP, QuickBooks), and 3PLs. We also provide API access for custom integrations.",
   },
   {
-    question: "What happens if I exceed my SKU limit?",
+    question: "What happens if I reach my monthly SKU run limit?",
     answer:
-      "If you approach your SKU limit, we'll notify you in advance. You can easily upgrade to a higher plan or contact our team for custom pricing if you need more capacity.",
+      "Each SKU included in a forecast execution counts as one SKU run. Free includes 100 per month, Launch 2,500, Professional 10,000, and Enterprise includes unlimited SKU runs under custom pricing.",
   },
   {
     question: "Do you offer training and support?",
     answer:
-      "Yes, all plans include comprehensive onboarding, training materials, and ongoing support. Professional and Enterprise plans include priority support with faster response times and dedicated account management.",
+      "Yes. Every plan can use both global and local forecasting models. Professional and Enterprise also include priority support, with dedicated account management available for Enterprise.",
   },
 ];

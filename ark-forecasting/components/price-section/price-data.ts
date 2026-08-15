@@ -18,7 +18,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: "Perfect for getting started",
     features: ["Full-accuracy forecasting models", "100 SKU runs with monthly refresh", "Forecast accuracy tracking", "CSV import/export", "Community support", "Single store", "2 user seats"],
     name: "Free",
-    price: "$0",
+    price: "A$0",
   },
   {
     action: "signup",
@@ -26,7 +26,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: "Everything on Free tier, plus",
     features: ["2,500 SKU runs a month with weekly refreshing", "5 user seats", "2-year run history", "Third-party integrations", "Up to 3 stores", "Email support"],
     name: "Launch",
-    price: "$99",
+    price: "A$139",
   },
   {
     action: "signup",
@@ -35,7 +35,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: ["10,000 SKU runs a month with weekly refreshing", "15 user seats", "5-year run history", "Third-party integrations", "Up to 6 stores", "Priority support"],
     name: "Professional",
     popular: true,
-    price: "$199",
+    price: "A$379",
   },
   {
     action: "sales",

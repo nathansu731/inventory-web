@@ -15,7 +15,7 @@ export const PricePlanCard = ({
   onPrimaryAction,
   plan,
 }: PricePlanCardProps) => {
-  const showPeriodLabel = plan.price !== "Custom";
+  const showPeriodLabel = plan.name !== "Free" && plan.price !== "Custom";
   const periodLabel = "/month";
 
   return (
